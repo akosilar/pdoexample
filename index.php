@@ -33,7 +33,9 @@
     // fetch multiple posts
 
     //user input
-    $author = "mars";
+    $author = "sars";
+    $is_published = true;
+    $id = 2;
 
     // positional params
     // $sql = 'SELECT * FROM posts where author = ?';
@@ -42,14 +44,29 @@
     // $posts = $stmt->fetchAll();
     
     // named params
-    $sql = 'SELECT * FROM posts where author = :author';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(['author' => $author]);
-    $posts = $stmt->fetchAll();
+    // $sql = 'SELECT * FROM posts where author = :author && is_published = :is_published';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute(['author' => $author, 'is_published' => $is_published]);
+    // $posts = $stmt->fetchAll();
 
     // var_dump($posts);
     
-    foreach ($posts as $post ) {
-        echo $post->title . '<br>';
-    }
+
     
+    // fetch single post
+    // $sql = 'SELECT * FROM posts';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute();
+    // $posts = $stmt->fetch();
+
+    // foreach ($posts as $post ) {
+    //     echo $post . '<br>';
+    // }
+
+    //get row count
+    // $sql = 'SELECT * FROM posts';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute();
+    // $posts = $stmt->rowCount();
+
+    // echo $posts;
