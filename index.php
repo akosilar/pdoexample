@@ -73,11 +73,26 @@
 
     //inserting data
 
-    $title = 'WHY DONT U';
-    $author = 'Klars';
-    $body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut delectus deserunt blanditiis, cupiditate debitis, officia beatae voluptatibus, soluta eveniet iusto est repellat ratione. Nisi reprehenderit minus provident facilis tempora fugiat.';
-    $is_published = 1;
+    // $title = 'WHY DONT U';
+    // $author = 'Klars';
+    // $body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut delectus deserunt blanditiis, cupiditate debitis, officia beatae voluptatibus, soluta eveniet iusto est repellat ratione. Nisi reprehenderit minus provident facilis tempora fugiat.';
+    // $is_published = 1;
 
-    $sql = 'INSERT INTO posts (title, author, body,is_published) VALUES (:title, :author,:body,:is_published)';
+    // $sql = 'INSERT INTO posts (title, author, body,is_published) VALUES (:title, :author,:body,:is_published)';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute(['title' => $title, 'author' => $author, 'body' => $body, 'is_published' => $is_published]);
+
+
+    // // updating data
+    // $author = 'Jan Sars';
+
+    // $sql = 'UPDATE posts SET author = :author WHERE id = 4';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute(['author'=>$author]);
+
+    // deleting data
+    $id = 1;
+
+    $sql = 'DELETE FROM posts WHERE id = :id';
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['title' => $title, 'author' => $author, 'body' => $body, 'is_published' => $is_published]);
+    $stmt->execute(['id' => $id]);
