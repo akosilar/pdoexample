@@ -10,6 +10,7 @@
     //create a pdo instance
     $pdo = new PDO($dsn,$user,$password);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     // pdo query
 
@@ -97,10 +98,10 @@
     // $stmt = $pdo->prepare($sql);
     // $stmt->execute(['id' => $id]);
 
-    //search data
+    //search data and limit results
     $search = "%dolor%";
 
-    $sql ='SELECT * FROM posts WHERE body LIKE :search';
+    $sql ='SELECT * FROM posts WHERE body LIKE :search LIMIT 1';
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['search' => $search]);
     $posts = $stmt->fetchAll();
