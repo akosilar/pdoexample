@@ -91,8 +91,20 @@
     // $stmt->execute(['author'=>$author]);
 
     // deleting data
-    $id = 1;
+    // $id = 1;
 
-    $sql = 'DELETE FROM posts WHERE id = :id';
+    // $sql = 'DELETE FROM posts WHERE id = :id';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute(['id' => $id]);
+
+    //search data
+    $search = "%dolor%";
+
+    $sql ='SELECT * FROM posts WHERE body LIKE :search';
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id' => $id]);
+    $stmt->execute(['search' => $search]);
+    $posts = $stmt->fetchAll();
+
+    foreach ($posts as $post) {
+        echo $post->id . '<br>';
+    }
