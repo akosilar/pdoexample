@@ -70,3 +70,14 @@
     // $posts = $stmt->rowCount();
 
     // echo $posts;
+
+    //inserting data
+
+    $title = 'WHY DONT U';
+    $author = 'Klars';
+    $body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut delectus deserunt blanditiis, cupiditate debitis, officia beatae voluptatibus, soluta eveniet iusto est repellat ratione. Nisi reprehenderit minus provident facilis tempora fugiat.';
+    $is_published = 1;
+
+    $sql = 'INSERT INTO posts (title, author, body,is_published) VALUES (:title, :author,:body,:is_published)';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['title' => $title, 'author' => $author, 'body' => $body, 'is_published' => $is_published]);
